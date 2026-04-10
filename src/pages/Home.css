@@ -3689,23 +3689,20 @@ a.ct-info-value:hover {
 .mq-outer {
   position: relative;
   overflow: hidden;
-  padding: 32px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 40px 0;
 }
 
 .mq-fade {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 200px;
+  width: 220px;
   z-index: 2;
   pointer-events: none;
 }
 
-.mq-fade--left  { left: 0;  background: linear-gradient(to right, #05070A, transparent); }
-.mq-fade--right { right: 0; background: linear-gradient(to left,  #05070A, transparent); }
+.mq-fade--left  { left: 0;  background: linear-gradient(to right, #05070A 30%, transparent); }
+.mq-fade--right { right: 0; background: linear-gradient(to left,  #05070A 30%, transparent); }
 
 .mq-row {
   overflow: hidden;
@@ -3713,17 +3710,17 @@ a.ct-info-value:hover {
 
 .mq-track {
   display: flex;
-  gap: 48px;
+  gap: 72px;
   width: max-content;
   align-items: center;
 }
 
 .mq-track--left {
-  animation: mq-scroll-left 30s linear infinite;
+  animation: mq-scroll-left 35s linear infinite;
 }
 
 .mq-track--right {
-  animation: mq-scroll-right 30s linear infinite;
+  animation: mq-scroll-right 35s linear infinite;
 }
 
 .mq-track:hover {
@@ -3745,20 +3742,23 @@ a.ct-info-value:hover {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  opacity: 0.65;
-  transition: opacity 0.3s ease;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.mq-logo:hover { opacity: 1; }
+.mq-logo:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
 
 .mq-logo img {
-  height: 40px;
-  max-width: 140px;
+  height: 52px;
+  max-width: 180px;
   object-fit: contain;
   filter: brightness(0) invert(1);
   transition: filter 0.3s ease;
 }
 
 .mq-logo:hover img {
-  filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(255,255,255,0.25));
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.3));
 }

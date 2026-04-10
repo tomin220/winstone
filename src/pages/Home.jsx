@@ -361,46 +361,31 @@ const Home = () => {
           <div className="mq-fade mq-fade--left" />
           <div className="mq-fade mq-fade--right" />
 
-          {/* Row 1 — scroll left */}
+          {/* Single row — scroll left */}
           <div className="mq-row">
             <div className="mq-track mq-track--left">
               {[
-                { name: 'BINGHATTI',          logo: '/images/binghatti.webp' },
-                { name: 'DAMAC',              logo: '/images/damac.jpg' },
-                { name: 'DANUBE PROPERTIES',  logo: '/images/Danube_Properties.png' },
-                { name: 'ELLINGTON',          logo: '/images/Ellington-Logo_Black-2.png' },
-                { name: 'EMAAR',              logo: '/images/emaar.png' },
-                { name: 'MAG',                logo: '/images/mag.png' },
-                { name: 'BINGHATTI',          logo: '/images/binghatti.webp' },
-                { name: 'DAMAC',              logo: '/images/damac.jpg' },
-                { name: 'DANUBE PROPERTIES',  logo: '/images/Danube_Properties.png' },
-                { name: 'ELLINGTON',          logo: '/images/Ellington-Logo_Black-2.png' },
-                { name: 'EMAAR',              logo: '/images/emaar.png' },
-                { name: 'MAG',                logo: '/images/mag.png' },
-              ].map((p, i) => (
-                <div key={i} className="mq-logo">
-                  <img src={p.logo} alt={p.name} />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 2 — scroll right */}
-          <div className="mq-row">
-            <div className="mq-track mq-track--right">
-              {[
-                { name: 'MERAAS',  logo: '/images/meraas.png' },
-                { name: 'NAKHEEL', logo: '/images/nakheel.png' },
-                { name: 'OMNIYAT', logo: '/images/ominyat.png' },
-                { name: 'ALDAR',   logo: '/images/aldar-logo-png_seeklogo-425039.png' },
-                { name: 'EMAAR',   logo: '/images/emaar.png' },
-                { name: 'MAG',     logo: '/images/mag.png' },
-                { name: 'MERAAS',  logo: '/images/meraas.png' },
-                { name: 'NAKHEEL', logo: '/images/nakheel.png' },
-                { name: 'OMNIYAT', logo: '/images/ominyat.png' },
-                { name: 'ALDAR',   logo: '/images/aldar-logo-png_seeklogo-425039.png' },
-                { name: 'EMAAR',   logo: '/images/emaar.png' },
-                { name: 'MAG',     logo: '/images/mag.png' },
+                { name: 'BINGHATTI',         logo: '/images/binghatti.webp' },
+                { name: 'DAMAC',             logo: '/images/damac.jpg' },
+                { name: 'DANUBE PROPERTIES', logo: '/images/Danube_Properties.png' },
+                { name: 'ELLINGTON',         logo: '/images/Ellington-Logo_Black-2.png' },
+                { name: 'EMAAR',             logo: '/images/emaar.png' },
+                { name: 'MAG',               logo: '/images/mag.png' },
+                { name: 'MERAAS',            logo: '/images/meraas.png' },
+                { name: 'NAKHEEL',           logo: '/images/nakheel.png' },
+                { name: 'OMNIYAT',           logo: '/images/ominyat.png' },
+                { name: 'ALDAR',             logo: '/images/aldar-logo-png_seeklogo-425039.png' },
+                // duplicate for seamless loop
+                { name: 'BINGHATTI',         logo: '/images/binghatti.webp' },
+                { name: 'DAMAC',             logo: '/images/damac.jpg' },
+                { name: 'DANUBE PROPERTIES', logo: '/images/Danube_Properties.png' },
+                { name: 'ELLINGTON',         logo: '/images/Ellington-Logo_Black-2.png' },
+                { name: 'EMAAR',             logo: '/images/emaar.png' },
+                { name: 'MAG',               logo: '/images/mag.png' },
+                { name: 'MERAAS',            logo: '/images/meraas.png' },
+                { name: 'NAKHEEL',           logo: '/images/nakheel.png' },
+                { name: 'OMNIYAT',           logo: '/images/ominyat.png' },
+                { name: 'ALDAR',             logo: '/images/aldar-logo-png_seeklogo-425039.png' },
               ].map((p, i) => (
                 <div key={i} className="mq-logo">
                   <img src={p.logo} alt={p.name} />
