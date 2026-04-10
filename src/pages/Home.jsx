@@ -357,33 +357,56 @@ const Home = () => {
           </motion.div>
         </div>
         
-        <div className="marquee-outer-container">
-          <div className="marquee-edge-fade left"></div>
-          <div className="marquee-edge-fade right"></div>
-          
-          <div className="marquee-track">
-            {[
-              { name: 'DANUBE PROPERTIES', logo: '/images/Danube_Properties.png' },
-              { name: 'ELLINGTON PROPERTIES', logo: '/images/Ellington-Logo_Black-2.png' },
-              { name: 'EMAAR', logo: '/images/emaar.png' },
-              { name: 'MAG', logo: '/images/mag.png' },
-              { name: 'MERAAS', logo: '/images/meraas.png' },
-              { name: 'NAKHEEL', logo: '/images/nakheel.png' },
-              { name: 'OMNIYAT', logo: '/images/ominyat.png' },
-              { name: 'ALDAR', logo: '/images/aldar-logo-png_seeklogo-425039.png' },
-              { name: 'DANUBE PROPERTIES', logo: '/images/Danube_Properties.png' },
-              { name: 'ELLINGTON PROPERTIES', logo: '/images/Ellington-Logo_Black-2.png' },
-              { name: 'EMAAR', logo: '/images/emaar.png' },
-              { name: 'MAG', logo: '/images/mag.png' },
-              { name: 'MERAAS', logo: '/images/meraas.png' },
-              { name: 'NAKHEEL', logo: '/images/nakheel.png' },
-              { name: 'OMNIYAT', logo: '/images/ominyat.png' },
-              { name: 'ALDAR', logo: '/images/aldar-logo-png_seeklogo-425039.png' },
-            ].map((partner, index) => (
-              <div key={index} className="marquee-logo-item">
-                <img src={partner.logo} alt={partner.name} className="brand-logo-img" />
-              </div>
-            ))}
+        <div className="mq-outer">
+          <div className="mq-fade mq-fade--left" />
+          <div className="mq-fade mq-fade--right" />
+
+          {/* Row 1 — scroll left */}
+          <div className="mq-row">
+            <div className="mq-track mq-track--left">
+              {[
+                { name: 'BINGHATTI',          logo: '/images/binghatti.webp' },
+                { name: 'DAMAC',              logo: '/images/damac.jpg' },
+                { name: 'DANUBE PROPERTIES',  logo: '/images/Danube_Properties.png' },
+                { name: 'ELLINGTON',          logo: '/images/Ellington-Logo_Black-2.png' },
+                { name: 'EMAAR',              logo: '/images/emaar.png' },
+                { name: 'MAG',                logo: '/images/mag.png' },
+                { name: 'BINGHATTI',          logo: '/images/binghatti.webp' },
+                { name: 'DAMAC',              logo: '/images/damac.jpg' },
+                { name: 'DANUBE PROPERTIES',  logo: '/images/Danube_Properties.png' },
+                { name: 'ELLINGTON',          logo: '/images/Ellington-Logo_Black-2.png' },
+                { name: 'EMAAR',              logo: '/images/emaar.png' },
+                { name: 'MAG',                logo: '/images/mag.png' },
+              ].map((p, i) => (
+                <div key={i} className="mq-logo">
+                  <img src={p.logo} alt={p.name} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 — scroll right */}
+          <div className="mq-row">
+            <div className="mq-track mq-track--right">
+              {[
+                { name: 'MERAAS',  logo: '/images/meraas.png' },
+                { name: 'NAKHEEL', logo: '/images/nakheel.png' },
+                { name: 'OMNIYAT', logo: '/images/ominyat.png' },
+                { name: 'ALDAR',   logo: '/images/aldar-logo-png_seeklogo-425039.png' },
+                { name: 'EMAAR',   logo: '/images/emaar.png' },
+                { name: 'MAG',     logo: '/images/mag.png' },
+                { name: 'MERAAS',  logo: '/images/meraas.png' },
+                { name: 'NAKHEEL', logo: '/images/nakheel.png' },
+                { name: 'OMNIYAT', logo: '/images/ominyat.png' },
+                { name: 'ALDAR',   logo: '/images/aldar-logo-png_seeklogo-425039.png' },
+                { name: 'EMAAR',   logo: '/images/emaar.png' },
+                { name: 'MAG',     logo: '/images/mag.png' },
+              ].map((p, i) => (
+                <div key={i} className="mq-logo">
+                  <img src={p.logo} alt={p.name} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -746,27 +769,27 @@ const Home = () => {
             {[
               {
                 quote: "Working with Winstone Group has been a journey of professionalism. Their commitment to quality in real estate development sets them apart in the UAE market.",
-                name: "Rajesh Mehta",
-                role: "Managing Director, Elite Realty Dubai",
-                initial: "R",
-              },
-              {
-                quote: "Winstone Projects delivered our township on time with exceptional quality. Their attention to detail and client-first approach is truly world-class.",
-                name: "Priya Sharma",
-                role: "CEO, Horizon Investments Bangalore",
-                initial: "P",
-              },
-              {
-                quote: "From the first meeting to handover, the Winstone team was transparent, professional and genuinely invested in our success. Highly recommended.",
                 name: "Ahmed Al Farsi",
                 role: "Real Estate Investor, Abu Dhabi",
                 initial: "A",
               },
               {
                 quote: "The DAMAC Islands project exceeded every expectation. Winstone's expertise in luxury developments is unmatched in the region.",
-                name: "Sunita Nair",
-                role: "Property Consultant, Mumbai",
+                name: "Khalid Al Mansoori",
+                role: "Property Developer, Dubai",
+                initial: "K",
+              },
+              {
+                quote: "From the first meeting to handover, the Winstone team was transparent, professional and genuinely invested in our success. Highly recommended.",
+                name: "Sara Al Hashimi",
+                role: "Investment Director, Abu Dhabi",
                 initial: "S",
+              },
+              {
+                quote: "Winstone's deep knowledge of the UAE real estate market and their premium project portfolio make them the go-to partner for luxury investments.",
+                name: "Omar Al Rashid",
+                role: "CEO, Gulf Capital Properties, Dubai",
+                initial: "O",
               },
             ].map((t, i) => (
               <motion.div

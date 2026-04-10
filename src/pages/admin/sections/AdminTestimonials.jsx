@@ -3,10 +3,10 @@ import { useState } from 'react';
 const STORAGE_KEY = 'admin_testimonials';
 
 const DEFAULT = [
-  { id: 1, quote: 'Working with Winstone Group has been a journey of professionalism. Their commitment to quality in real estate development sets them apart in the UAE market.', name: 'Rajesh Mehta', role: 'Managing Director, Elite Realty Dubai', initial: 'R' },
-  { id: 2, quote: 'Winstone Projects delivered our township on time with exceptional quality. Their attention to detail and client-first approach is truly world-class.', name: 'Priya Sharma', role: 'CEO, Horizon Investments Bangalore', initial: 'P' },
-  { id: 3, quote: 'From the first meeting to handover, the Winstone team was transparent, professional and genuinely invested in our success. Highly recommended.', name: 'Ahmed Al Farsi', role: 'Real Estate Investor, Abu Dhabi', initial: 'A' },
-  { id: 4, quote: 'The DAMAC Islands project exceeded every expectation. Winstone\'s expertise in luxury developments is unmatched in the region.', name: 'Sunita Nair', role: 'Property Consultant, Mumbai', initial: 'S' },
+  { id: 1, quote: 'Working with Winstone Group has been a journey of professionalism. Their commitment to quality in real estate development sets them apart in the UAE market.', name: 'Ahmed Al Farsi', role: 'Real Estate Investor, Abu Dhabi', initial: 'A' },
+  { id: 2, quote: 'The DAMAC Islands project exceeded every expectation. Winstone\'s expertise in luxury developments is unmatched in the region.', name: 'Khalid Al Mansoori', role: 'Property Developer, Dubai', initial: 'K' },
+  { id: 3, quote: 'From the first meeting to handover, the Winstone team was transparent, professional and genuinely invested in our success. Highly recommended.', name: 'Sara Al Hashimi', role: 'Investment Director, Abu Dhabi', initial: 'S' },
+  { id: 4, quote: 'Winstone\'s deep knowledge of the UAE real estate market and their premium project portfolio make them the go-to partner for luxury investments.', name: 'Omar Al Rashid', role: 'CEO, Gulf Capital Properties, Dubai', initial: 'O' },
 ];
 
 const empty = { id: Date.now(), quote: '', name: '', role: '', initial: '' };

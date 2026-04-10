@@ -3682,3 +3682,83 @@ a.ct-info-value:hover {
   font-size: 0.85rem;
   font-weight: 600;
 }
+
+/* ══════════════════════════════════════
+   DUAL-ROW MARQUEE
+══════════════════════════════════════ */
+.mq-outer {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mq-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mq-fade--left  { left: 0;  background: linear-gradient(to right, #05070A, transparent); }
+.mq-fade--right { right: 0; background: linear-gradient(to left,  #05070A, transparent); }
+
+.mq-row {
+  overflow: hidden;
+}
+
+.mq-track {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  align-items: center;
+}
+
+.mq-track--left {
+  animation: mq-scroll-left 30s linear infinite;
+}
+
+.mq-track--right {
+  animation: mq-scroll-right 30s linear infinite;
+}
+
+.mq-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes mq-scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes mq-scroll-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.mq-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
+}
+
+.mq-logo:hover { opacity: 1; }
+
+.mq-logo img {
+  height: 40px;
+  max-width: 140px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.mq-logo:hover img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(255,255,255,0.25));
+}
