@@ -514,6 +514,7 @@ const Home = () => {
               name: 'Winstone Projects LLP',
               desc: 'Premium real estate development and township projects across major Indian and UAE cities.',
               img: '/images/damac.jpg',
+              href: 'https://www.instagram.com/winstoneprojectsuae?igsh=MWUzODAzbzlqcTM1Yw%3D%3D',
             },
             {
               icon: <Award size={22} />,
@@ -521,6 +522,7 @@ const Home = () => {
               name: 'Winstone Motors',
               desc: 'Luxury automotive dealership and services catering to the discerning global market.',
               img: '/images/company_automotive_1775636477456.png',
+              href: 'https://www.instagram.com/winstonemotors/',
             },
             {
               icon: <Users size={22} />,
@@ -528,9 +530,18 @@ const Home = () => {
               name: 'Winstone Foundation',
               desc: 'Social impact and community development initiatives transforming lives globally.',
               img: '/images/company_foundation_1775636506747.png',
+              href: 'https://www.instagram.com/winstonefoundation/',
             },
           ].map((co, i) => (
-            <motion.div key={i} variants={fadeUp} className="co-card">
+            <motion.a
+              key={i}
+              variants={fadeUp}
+              className="co-card"
+              href={co.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
               {/* Full image */}
               <div className="co-card-img">
                 <img src={co.img} alt={co.name} />
@@ -545,9 +556,9 @@ const Home = () => {
                 <h3 className="co-name">{co.name}</h3>
                 <p className="co-desc">{co.desc}</p>
                 <div className="co-divider" />
-                <span className="co-link">Learn More →</span>
+                <span className="co-link">View on Instagram →</span>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </section>
