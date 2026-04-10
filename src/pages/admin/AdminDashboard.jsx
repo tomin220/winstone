@@ -4,6 +4,7 @@ import AdminProjects from './sections/AdminProjects';
 import AdminSiteInfo from './sections/AdminSiteInfo';
 import AdminAwards from './sections/AdminAwards';
 import AdminTestimonials from './sections/AdminTestimonials';
+import AdminEnquiries from './sections/AdminEnquiries';
 import './Admin.css';
 
 const NAV_ITEMS = [
@@ -11,6 +12,7 @@ const NAV_ITEMS = [
   { id: 'siteinfo',     label: 'Site Info',      icon: '📝' },
   { id: 'awards',       label: 'Awards',         icon: '🏆' },
   { id: 'testimonials', label: 'Testimonials',   icon: '💬' },
+  { id: 'enquiries',    label: 'Enquiries',      icon: '📩' },
 ];
 
 function AdminDashboard() {
@@ -34,6 +36,7 @@ function AdminDashboard() {
       case 'siteinfo':     return <AdminSiteInfo />;
       case 'awards':       return <AdminAwards />;
       case 'testimonials': return <AdminTestimonials />;
+      case 'enquiries':    return <AdminEnquiries />;
       default:             return <AdminProjects />;
     }
   };

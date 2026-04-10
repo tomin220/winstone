@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, Building2, Map, Users, ChevronDown } from 'lucide-react';
 import { PROJECTS } from '../data/projects';
+import { supabase } from '../lib/supabase';
 import { GlowCard } from '../components/GlowCard';
 import { ShimmerText } from '../components/ShimmerText';
 import { BorderBeam } from '../components/BorderBeam';
@@ -150,6 +151,37 @@ const Home = () => {
     setTimeout(() => setToast(false), 3500);
     // scroll to form
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Contact form state
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [formStatus, setFormStatus] = useState('idle'); // idle | loading | success | error
+
+  const handleFormChange = (field, value) => setFormData(f => ({ ...f, [field]: value }));
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      setFormStatus('error');
+      setTimeout(() => setFormStatus('idle'), 3000);
+      return;
+    }
+    setFormStatus('loading');
+    const { error } = await supabase.from('enquiries').insert([{
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      message: formData.message,
+    }]);
+    if (error) {
+      console.error('Supabase error:', error);
+      setFormStatus('error');
+      setTimeout(() => setFormStatus('idle'), 3000);
+    } else {
+      setFormStatus('success');
+      setFormData({ name: '', email: '', company: '', message: '' });
+      setTimeout(() => setFormStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -776,16 +808,60 @@ const Home = () => {
             {/* Left: form */}
             <motion.div className="ct-form-wrap" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <h3 className="ct-form-title">Send a Message</h3>
-              <form className="ct-form" onSubmit={e => e.preventDefault()}>
+              <form className="ct-form" onSubmit={handleFormSubmit}>
                 <div className="ct-row">
-                  <input className="ct-input" type="text" placeholder="Your Name" />
-                  <input className="ct-input" type="email" placeholder="Your Email" />
+                  <input
+                    className="ct-input"
+                    type="text"
+                    placeholder="Your Name *"
+                    value={formData.name}
+                    onChange={e => handleFormChange('name', e.target.value)}
+                    required
+                  />
+                  <input
+                    className="ct-input"
+                    type="email"
+                    placeholder="Your Email *"
+                    value={formData.email}
+                    onChange={e => handleFormChange('email', e.target.value)}
+                    required
+                  />
                 </div>
-                <input className="ct-input" type="text" placeholder="Company / Organization" />
-                <textarea className="ct-input ct-textarea" placeholder="Tell us about your project or inquiry..." rows={5} />
-                <button type="submit" className="ct-submit">
+                <input
+                  className="ct-input"
+                  type="text"
+                  placeholder="Company / Organization"
+                  value={formData.company}
+                  onChange={e => handleFormChange('company', e.target.value)}
+                />
+                <textarea
+                  className="ct-input ct-textarea"
+                  placeholder="Tell us about your project or inquiry... *"
+                  rows={5}
+                  value={formData.message}
+                  onChange={e => handleFormChange('message', e.target.value)}
+                  required
+                />
+
+                {formStatus === 'success' && (
+                  <div className="ct-form-success">
+                    ✓ Message sent! We'll get back to you shortly.
+                  </div>
+                )}
+                {formStatus === 'error' && (
+                  <div className="ct-form-error">
+                    Please fill in all required fields and try again.
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  className="ct-submit"
+                  disabled={formStatus === 'loading'}
+                  style={{ opacity: formStatus === 'loading' ? 0.7 : 1 }}
+                >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                  Send Message
+                  {formStatus === 'loading' ? 'Sending...' : 'Send Message'}
                 </button>
                 <div className="ct-alt">
                   <span>Or send via:</span>
