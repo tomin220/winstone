@@ -267,6 +267,11 @@ const Home = () => {
             </motion.button>
             <motion.button 
               className="btn-outline-glass"
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else window.location.hash = '#contact';
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
