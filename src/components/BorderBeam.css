@@ -1,0 +1,33 @@
+.border-beam {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.border-beam::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--beam-from) 10%,
+    var(--beam-to) 20%,
+    transparent 30%,
+    transparent 100%
+  );
+  animation: beamRotate var(--beam-duration) linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  padding: 1px;
+}
+
+@keyframes beamRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

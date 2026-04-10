@@ -1,0 +1,31 @@
+.shiny-text {
+  display: block;
+  position: relative;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  margin-bottom: 0.75rem;
+
+  /* Shiny sweep overlay */
+  background: linear-gradient(
+    120deg,
+    var(--accent-gold) 0%,
+    var(--accent-gold) 40%,
+    #fff5c0 50%,
+    var(--accent-gold) 60%,
+    var(--accent-gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineSwipe 3s linear infinite;
+}
+
+@keyframes shineSwipe {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
