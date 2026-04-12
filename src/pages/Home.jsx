@@ -298,25 +298,8 @@ const Home = () => {
       {/* Section Divider: Hero → Impact */}
       <div className="section-divider">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,0 L1440,0 L1440,60 L0,20 Z" fill="#111827"/>
+          <path d="M0,0 L1440,0 L1440,60 L0,20 Z" fill="#0D1525"/>
         </svg>
-      </div>
-
-      {/* Ticker strip */}
-      <div className="ticker-strip">
-        <div className="ticker-track">
-          {[
-            'Luxury Real Estate', 'UAE & India', 'Premium Developments', 'Est. 2018',
-            'Award Winning', 'Global Reach', 'Iconic Spaces', '3 Group Companies',
-            'Luxury Real Estate', 'UAE & India', 'Premium Developments', 'Est. 2018',
-            'Award Winning', 'Global Reach', 'Iconic Spaces', '3 Group Companies',
-          ].map((item, i) => (
-            <span key={i} className="ticker-item">
-              {item}
-              <span className="ticker-sep" />
-            </span>
-          ))}
-        </div>
       </div>
 
       {/* Global Impact Section */}
@@ -444,7 +427,7 @@ const Home = () => {
       {/* Section Divider: Partners → Featured Projects */}
       <div className="section-divider">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B0F1A"/>
+          <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#060C18"/>
         </svg>
       </div>
 
@@ -552,7 +535,7 @@ const Home = () => {
       {/* Section Divider: About → Companies */}
       <div className="section-divider">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,60 L1440,20 L1440,60 L0,60 Z" fill="#111827"/>
+          <path d="M0,60 L1440,20 L1440,60 L0,60 Z" fill="#0D1525"/>
         </svg>
       </div>
 
