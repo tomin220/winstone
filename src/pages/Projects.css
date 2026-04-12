@@ -13,6 +13,7 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
 }
 
 .proj-hero-bg {
@@ -29,7 +30,7 @@
   transform: translate(-50%, -50%);
   width: 700px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(201,161,74,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(201,106,58,0.1) 0%, transparent 70%);
   filter: blur(60px);
 }
 
@@ -170,9 +171,9 @@
 }
 
 .proj-filter-btn.active {
-  background: rgba(201,161,74,0.12);
-  border-color: rgba(201,161,74,0.5);
-  color: #C9A14A;
+  background: var(--grad-accent);
+  border-color: transparent;
+  color: #fff;
 }
 
 .proj-filter-count {
@@ -193,7 +194,9 @@
 
 /* ── Project Card ── */
 .pv-card {
-  background: #0d0f14;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
   overflow: hidden;
@@ -203,9 +206,9 @@
 }
 
 .pv-card:hover {
-  border-color: rgba(201,161,74,0.35);
-  box-shadow: 0 20px 50px rgba(201,161,74,0.08);
-  transform: translateY(-4px);
+  border-color: var(--accent-border);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-6px);
 }
 
 /* Image */
@@ -252,9 +255,9 @@
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(201,161,74,0.15);
-  border: 1px solid rgba(201,161,74,0.3);
-  color: #C9A14A;
+  background: var(--grad-accent);
+  border: none;
+  color: #fff;
   padding: 4px 12px;
   border-radius: 999px;
   font-size: 0.6rem;
@@ -408,8 +411,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #C9A14A;
-  color: #000;
+  background: var(--grad-accent);
+  color: #fff;
   font-weight: 700;
   font-size: 0.85rem;
   padding: 12px 24px;
@@ -420,12 +423,12 @@
   justify-content: center;
   margin-top: auto;
   transition: all 0.3s ease;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
 }
 
 .pv-learn-btn:hover {
-  background: #e0b85a;
-  box-shadow: 0 8px 24px rgba(201,161,74,0.35);
+  box-shadow: 0 8px 24px rgba(201,106,58,0.4);
+  transform: translateY(-2px);
 }
 
 /* Responsive */

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Award, Building2, Map, Users, ChevronDown } from 'lucide-react';
 import { PROJECTS } from '../data/projects';
 import { supabase } from '../lib/supabase';
@@ -18,8 +18,13 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 }
+    transition: { staggerChildren: 0.15 }
   }
+};
+
+const heroChild = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
 
 /* ── Home Featured Projects — first 6 from shared data ── */
@@ -76,7 +81,7 @@ function FeaturedSlideshow({ projects, onNavigate }) {
                 opacity: style.opacity,
                 rotateY: style.rotateY,
               }}
-              transition={{ type: 'spring', stiffness: 260, damping: 28 }}
+              transition={{ type: 'spring', stiffness: 280, damping: 30 }}
               onClick={() => !isActive && setActive(i)}
               style={{ cursor: isActive ? 'default' : 'pointer', zIndex: 10 - Math.abs(pos) }}
             >
@@ -92,24 +97,32 @@ function FeaturedSlideshow({ projects, onNavigate }) {
 
               {/* Info — only fully visible on active */}
               {isActive && (
-                <div className="csc-card-body">
-                  <div className="csc-meta">
-                    <span className="csc-year">{proj.year}</span>
-                    <span className="csc-sep">•</span>
-                    <span className={`csc-status csc-status--${proj.tag.toLowerCase()}`}>{proj.tag}</span>
-                  </div>
-                  <h2 className="csc-title">{proj.name.toUpperCase()}</h2>
-                  <p className="csc-desc">{proj.description}</p>
-                  <ul className="csc-highlights">
-                    {proj.highlights.slice(0, 4).map((h, j) => (
-                      <li key={j}><span className="csc-bullet" />{h}</li>
-                    ))}
-                  </ul>
-                  <button className="csc-cta" onClick={() => onNavigate('/projects')}>
-                    View All Projects
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </button>
-                </div>
+                <AnimatePresence>
+                  <motion.div
+                    className="csc-card-body"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <div className="csc-meta">
+                      <span className="csc-year">{proj.year}</span>
+                      <span className="csc-sep">•</span>
+                      <span className={`csc-status csc-status--${proj.tag.toLowerCase()}`}>{proj.tag}</span>
+                    </div>
+                    <h2 className="csc-title">{proj.name.toUpperCase()}</h2>
+                    <p className="csc-desc">{proj.description}</p>
+                    <ul className="csc-highlights">
+                      {proj.highlights.slice(0, 4).map((h, j) => (
+                        <li key={j}><span className="csc-bullet" />{h}</li>
+                      ))}
+                    </ul>
+                    <button className="csc-cta" onClick={() => onNavigate('/projects')}>
+                      View All Projects
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                  </motion.div>
+                </AnimatePresence>
               )}
             </motion.div>
           );
@@ -144,6 +157,9 @@ function FeaturedSlideshow({ projects, onNavigate }) {
 const Home = () => {
   const navigate = useNavigate();
   const [toast, setToast] = useState(false);
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(scrollYProgress, [0, 0.3], [0, -80]);
 
   const showEnquiryToast = (e) => {
     e.preventDefault();
@@ -202,7 +218,7 @@ const Home = () => {
         )}
       </AnimatePresence>
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section" ref={heroRef}>
         <video 
           className="hero-video-bg" 
           autoPlay 
@@ -219,43 +235,41 @@ const Home = () => {
         
         <motion.div 
           className="hero-content"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          style={{ y: heroY }}
         >
-          <motion.div className="hero-subtitle" variants={fadeUp} initial="hidden" animate="visible">
+          <motion.div className="hero-subtitle" variants={heroChild}>
             <span className="gold-star">✦</span> SINCE 2018 - LUXURY REAL ESTATE DEVELOPMENT
           </motion.div>
           
-          <h1 className="hero-main-title">
+          <motion.h1 className="hero-main-title" variants={heroChild}>
             <span className="serif-text">Winstone</span><br />
             <span className="bold-sans-text text-gold"><ShimmerText>Projects</ShimmerText></span>
-          </h1>
+          </motion.h1>
           
-          <motion.div className="decorative-divider" variants={fadeUp} initial="hidden" animate="visible" transition={{ delay: 0.3 }}>
+          <motion.div className="decorative-divider" variants={heroChild} style={{ margin: '0 auto 1.5rem' }}>
             <div className="line-seg"></div>
             <div className="line-dot"></div>
             <div className="line-seg"></div>
           </motion.div>
 
-          <motion.h3 className="hero-dev-text" variants={fadeUp} initial="hidden" animate="visible" transition={{ delay: 0.4 }}>
+          <motion.h3 className="hero-dev-text" variants={heroChild}>
             Premium Real Estate Developers
           </motion.h3>
 
-          <motion.p className="hero-desc" variants={fadeUp} initial="hidden" animate="visible" transition={{ delay: 0.5 }}>
+          <motion.p className="hero-desc" variants={heroChild}>
             "Where architectural dreams meet reality, creating spaces that inspire and endure."
           </motion.p>
           
-          <motion.p className="hero-market" variants={fadeUp} initial="hidden" animate="visible" transition={{ delay: 0.6 }}>
+          <motion.p className="hero-market" variants={heroChild}>
             India & UAE Markets
           </motion.p>
 
           <motion.div 
             className="hero-actions" 
-            variants={fadeUp} 
-            initial="hidden" 
-            animate="visible" 
-            transition={{ delay: 0.7 }}
+            variants={heroChild}
           >
             <motion.button 
               className="btn-solid-gold" 
@@ -280,6 +294,13 @@ const Home = () => {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* Section Divider: Hero → Impact */}
+      <div className="section-divider">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0 L1440,0 L1440,60 L0,20 Z" fill="#111827"/>
+        </svg>
+      </div>
 
       {/* Global Impact Section */}
       <section className="impact-section">
@@ -403,6 +424,13 @@ const Home = () => {
 
 
 
+      {/* Section Divider: Partners → Featured Projects */}
+      <div className="section-divider">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B0F1A"/>
+        </svg>
+      </div>
+
       {/* ── Featured Projects — Slideshow ── */}
       <section className="fps-section" id="projects">
         <div className="container">
@@ -440,7 +468,7 @@ const Home = () => {
             {/* Left */}
             <motion.div
               className="about-text-col"
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -504,6 +532,13 @@ const Home = () => {
         </div>
       </section>
       
+      {/* Section Divider: About → Companies */}
+      <div className="section-divider">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 L1440,20 L1440,60 L0,60 Z" fill="#111827"/>
+        </svg>
+      </div>
+
       {/* Companies Section */}
       <section id="companies" className="section-padding container">
         <motion.div style={{ textAlign: 'center', marginBottom: '4rem' }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
