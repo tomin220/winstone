@@ -1,5 +1,5 @@
 .pd-page {
-  background: #05070A;
+  background: var(--bg-primary);
   min-height: 100vh;
 }
 
