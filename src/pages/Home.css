@@ -99,21 +99,39 @@
 
 .serif-text {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 8vw, 7rem);
-  color: #fff;
+  font-size: clamp(5.5rem, 11vw, 10rem);
+  color: transparent;
   font-weight: 900;
-  letter-spacing: -2px;
+  letter-spacing: -5px;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.6);
+  display: block;
+  line-height: 0.88;
+  /* subtle shimmer sweep */
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
+  background-size: 200% 100%;
+  animation: textShimmer 4s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .bold-sans-text {
-  font-family: var(--font-body);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 300;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7.5rem);
+  font-weight: 900;
   font-style: italic;
-  letter-spacing: -1px;
-  text-transform: capitalize;
+  letter-spacing: -4px;
+  text-transform: none;
   display: block;
-  margin-top: 0.5rem;
+  margin-top: -0.1em;
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 75%, #6B2A0E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0;
+  filter: drop-shadow(0 0 40px rgba(201,106,58,0.35));
 }
 
 .text-gold {
@@ -225,6 +243,60 @@
   height: 60px;
 }
 
+/* ── Section heading with ghost watermark word ── */
+.section-heading-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading-ghost {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,106,58,0.08);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -4px;
+  z-index: 0;
+}
+
+/* ── Animated overline pill ── */
+.section-subtitle-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-pill);
+  color: var(--accent);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-subtitle-pill::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--grad-accent);
+  border-radius: 999px 0 0 999px;
+}
+
 /* ── Impact / Stats Cards — glassmorphism ── */
 .impact-glow-wrap {
   background: rgba(255,255,255,0.04);
@@ -283,11 +355,23 @@
 }
 
 .impact-title {
-  font-family: var(--font-serif);
-  font-size: 3.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
   color: #fff;
   margin-bottom: 1.25rem;
-  font-weight: 400;
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 0.95;
+  /* split: first word white, second word copper gradient */
+}
+
+.impact-title .text-gold {
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0;
+  filter: drop-shadow(0 0 30px rgba(201,106,58,0.4));
 }
 
 .impact-subtitle {
@@ -621,16 +705,17 @@
 }
 
 .luxury-heading {
-  font-family: var(--font-serif);
-  font-size: 54px;
-  font-weight: 400;
-  background: linear-gradient(to right, #fef08a, #C9A14A, #ca8a04);
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 50%, var(--accent) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   margin-bottom: 24px;
-  text-shadow: 0 0 15px rgba(201, 161, 74, 0.2);
-  letter-spacing: -0.5px;
+  letter-spacing: -3px;
+  line-height: 0.95;
+  filter: drop-shadow(0 0 30px rgba(201,106,58,0.25));
 }
 
 .luxury-divider {
@@ -3002,11 +3087,12 @@ a.ct-info-value:hover {
 }
 
 .about-main-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
   color: #fff;
-  line-height: 1.15;
+  line-height: 1;
+  letter-spacing: -2px;
   margin-bottom: 0;
 }
 
@@ -4170,4 +4256,244 @@ a.ct-info-value:hover {
 @media (max-width: 768px) {
   .serif-text { font-size: 2.5rem !important; }
   .bold-sans-text { font-size: 2rem !important; }
+}
+
+/* ══════════════════════════════════════
+   VISUAL UPGRADES — EDITORIAL HEADINGS
+══════════════════════════════════════ */
+
+/* Ghost watermark behind section titles */
+.section-title-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.section-ghost-word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 14vw, 12rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,106,58,0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -6px;
+  z-index: 0;
+  line-height: 1;
+}
+
+/* About section heading upgrade */
+.about-main-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -3px !important;
+  line-height: 0.95 !important;
+  color: #fff !important;
+}
+
+.about-main-title .gold-gradient-text {
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+}
+
+/* Awards heading upgrade */
+.aw-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -3px !important;
+  line-height: 0.95 !important;
+  color: #fff !important;
+}
+
+.aw-title .gold-gradient-text {
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+}
+
+/* Featured projects heading */
+.hfp-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -3px !important;
+  line-height: 0.95 !important;
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+}
+
+/* Contact heading */
+.ct-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -3px !important;
+  line-height: 0.95 !important;
+  color: #fff !important;
+}
+
+.ct-title .gold-gradient-text {
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+}
+
+/* Testimonials heading */
+.tm-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -3px !important;
+  line-height: 0.95 !important;
+  color: #fff !important;
+}
+
+.tm-title .gold-gradient-text {
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+}
+
+/* Founder bio title */
+.founder-bio-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.5rem, 4.5vw, 4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -2.5px !important;
+  line-height: 0.95 !important;
+  color: #fff !important;
+}
+
+.founder-bio-title .gold-gradient-text {
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+}
+
+/* ── Horizontal ticker strip ── */
+.ticker-strip {
+  width: 100%;
+  overflow: hidden;
+  background: var(--grad-accent);
+  padding: 10px 0;
+  position: relative;
+  z-index: 3;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 20s linear infinite;
+  gap: 0;
+}
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 32px;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ticker-sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation-play-state: paused; }
+  @keyframes textShimmer { 0%, 100% { background-position: 0 0; } }
+}
+
+/* ── Hero subtitle upgrade ── */
+.hero-dev-text {
+  font-family: var(--font-body) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.5) !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* ── Hero description upgrade ── */
+.hero-desc {
+  font-family: var(--font-display) !important;
+  font-size: 1.25rem !important;
+  font-style: italic !important;
+  color: rgba(255,255,255,0.7) !important;
+  max-width: 520px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+}
+
+/* ── Impact icon badge upgrade ── */
+.impact-icon-badge {
+  font-size: 2.5rem !important;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px rgba(201,106,58,0.5));
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* ── About legacy title upgrade ── */
+.about-legacy-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -1px !important;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* ── Founder name upgrade ── */
+.founder-name-gold {
+  font-family: var(--font-display) !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -1px !important;
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 50%, var(--accent) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
 }

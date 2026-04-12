@@ -78,19 +78,21 @@
 }
 
 .proj-hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 900;
   color: #fff;
-  line-height: 1.1;
+  line-height: 0.95;
   margin-bottom: 16px;
+  letter-spacing: -3px;
 }
 
 .proj-hero-gold {
-  background: linear-gradient(135deg, #FFE08A, #C9A14A, #8E6B2E);
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(0 0 24px rgba(201,106,58,0.35));
 }
 
 .proj-hero-sub {
@@ -114,11 +116,16 @@
 }
 
 .proj-hero-stat-num {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
-  color: #C9A14A;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -1px;
   line-height: 1;
+  background: linear-gradient(135deg, #fff 0%, var(--accent-light) 60%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px rgba(201,106,58,0.3));
 }
 
 .proj-hero-stat-label {

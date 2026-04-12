@@ -302,6 +302,23 @@ const Home = () => {
         </svg>
       </div>
 
+      {/* Ticker strip */}
+      <div className="ticker-strip">
+        <div className="ticker-track">
+          {[
+            'Luxury Real Estate', 'UAE & India', 'Premium Developments', 'Est. 2018',
+            'Award Winning', 'Global Reach', 'Iconic Spaces', '3 Group Companies',
+            'Luxury Real Estate', 'UAE & India', 'Premium Developments', 'Est. 2018',
+            'Award Winning', 'Global Reach', 'Iconic Spaces', '3 Group Companies',
+          ].map((item, i) => (
+            <span key={i} className="ticker-item">
+              {item}
+              <span className="ticker-sep" />
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* Global Impact Section */}
       <section className="impact-section">
         <div className="container">
