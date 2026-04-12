@@ -99,14 +99,13 @@
 
 .serif-text {
   font-family: var(--font-display);
-  font-size: clamp(5.5rem, 11vw, 10rem);
+  font-size: clamp(3.5rem, 7vw, 6rem);
   color: transparent;
   font-weight: 900;
-  letter-spacing: -5px;
+  letter-spacing: -3px;
   -webkit-text-stroke: 1.5px rgba(255,255,255,0.6);
   display: block;
-  line-height: 0.88;
-  /* subtle shimmer sweep */
+  line-height: 0.9;
   background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
   background-size: 200% 100%;
   animation: textShimmer 4s ease-in-out infinite;
@@ -119,10 +118,10 @@
 
 .bold-sans-text {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 8vw, 7.5rem);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
   font-weight: 900;
   font-style: italic;
-  letter-spacing: -4px;
+  letter-spacing: -2.5px;
   text-transform: none;
   display: block;
   margin-top: -0.1em;
@@ -131,7 +130,7 @@
   background-clip: text;
   color: transparent;
   -webkit-text-stroke: 0;
-  filter: drop-shadow(0 0 40px rgba(201,106,58,0.35));
+  filter: drop-shadow(0 0 30px rgba(201,106,58,0.3));
 }
 
 .text-gold {
@@ -356,13 +355,12 @@
 
 .impact-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   color: #fff;
   margin-bottom: 1.25rem;
   font-weight: 900;
-  letter-spacing: -3px;
-  line-height: 0.95;
-  /* split: first word white, second word copper gradient */
+  letter-spacing: -1.5px;
+  line-height: 1;
 }
 
 .impact-title .text-gold {
@@ -371,7 +369,7 @@
   background-clip: text;
   color: transparent;
   -webkit-text-stroke: 0;
-  filter: drop-shadow(0 0 30px rgba(201,106,58,0.4));
+  filter: drop-shadow(0 0 20px rgba(201,106,58,0.35));
 }
 
 .impact-subtitle {
@@ -706,16 +704,16 @@
 
 .luxury-heading {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 900;
   background: linear-gradient(135deg, #fff 0%, var(--accent-light) 50%, var(--accent) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   margin-bottom: 24px;
-  letter-spacing: -3px;
-  line-height: 0.95;
-  filter: drop-shadow(0 0 30px rgba(201,106,58,0.25));
+  letter-spacing: -1.5px;
+  line-height: 1;
+  filter: drop-shadow(0 0 20px rgba(201,106,58,0.2));
 }
 
 .luxury-divider {
@@ -4289,10 +4287,10 @@ a.ct-info-value:hover {
 /* About section heading upgrade */
 .about-main-title {
   font-family: var(--font-display) !important;
-  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-size: clamp(2rem, 4vw, 3.2rem) !important;
   font-weight: 900 !important;
-  letter-spacing: -3px !important;
-  line-height: 0.95 !important;
+  letter-spacing: -1.5px !important;
+  line-height: 1 !important;
   color: #fff !important;
 }
 
@@ -4301,16 +4299,16 @@ a.ct-info-value:hover {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   color: transparent !important;
-  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+  filter: drop-shadow(0 0 18px rgba(201,106,58,0.25));
 }
 
 /* Awards heading upgrade */
 .aw-title {
   font-family: var(--font-display) !important;
-  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-size: clamp(2rem, 4vw, 3.2rem) !important;
   font-weight: 900 !important;
-  letter-spacing: -3px !important;
-  line-height: 0.95 !important;
+  letter-spacing: -1.5px !important;
+  line-height: 1 !important;
   color: #fff !important;
 }
 
@@ -4319,30 +4317,30 @@ a.ct-info-value:hover {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   color: transparent !important;
-  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+  filter: drop-shadow(0 0 18px rgba(201,106,58,0.25));
 }
 
 /* Featured projects heading */
 .hfp-title {
   font-family: var(--font-display) !important;
-  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-size: clamp(2rem, 4vw, 3.2rem) !important;
   font-weight: 900 !important;
-  letter-spacing: -3px !important;
-  line-height: 0.95 !important;
+  letter-spacing: -1.5px !important;
+  line-height: 1 !important;
   background: linear-gradient(135deg, #fff 0%, var(--accent-light) 40%, var(--accent) 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   color: transparent !important;
-  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+  filter: drop-shadow(0 0 18px rgba(201,106,58,0.25));
 }
 
 /* Contact heading */
 .ct-title {
   font-family: var(--font-display) !important;
-  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-size: clamp(2rem, 4vw, 3.2rem) !important;
   font-weight: 900 !important;
-  letter-spacing: -3px !important;
-  line-height: 0.95 !important;
+  letter-spacing: -1.5px !important;
+  line-height: 1 !important;
   color: #fff !important;
 }
 
@@ -4351,16 +4349,16 @@ a.ct-info-value:hover {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   color: transparent !important;
-  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+  filter: drop-shadow(0 0 18px rgba(201,106,58,0.25));
 }
 
 /* Testimonials heading */
 .tm-title {
   font-family: var(--font-display) !important;
-  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
+  font-size: clamp(2rem, 4vw, 3.2rem) !important;
   font-weight: 900 !important;
-  letter-spacing: -3px !important;
-  line-height: 0.95 !important;
+  letter-spacing: -1.5px !important;
+  line-height: 1 !important;
   color: #fff !important;
 }
 
@@ -4369,16 +4367,16 @@ a.ct-info-value:hover {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   color: transparent !important;
-  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+  filter: drop-shadow(0 0 18px rgba(201,106,58,0.25));
 }
 
 /* Founder bio title */
 .founder-bio-title {
   font-family: var(--font-display) !important;
-  font-size: clamp(2.5rem, 4.5vw, 4rem) !important;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem) !important;
   font-weight: 900 !important;
-  letter-spacing: -2.5px !important;
-  line-height: 0.95 !important;
+  letter-spacing: -1.5px !important;
+  line-height: 1 !important;
   color: #fff !important;
 }
 
@@ -4387,7 +4385,7 @@ a.ct-info-value:hover {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   color: transparent !important;
-  filter: drop-shadow(0 0 24px rgba(201,106,58,0.3));
+  filter: drop-shadow(0 0 18px rgba(201,106,58,0.25));
 }
 
 /* ── Horizontal ticker strip ── */
