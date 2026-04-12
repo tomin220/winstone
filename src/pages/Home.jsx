@@ -241,12 +241,12 @@ const Home = () => {
           style={{ y: heroY }}
         >
           <motion.div className="hero-subtitle" variants={heroChild}>
-            <span className="gold-star">✦</span> SINCE 2018 - LUXURY REAL ESTATE DEVELOPMENT
+            <span className="gold-star">✦</span> EST. 2018 — INDIA & UAE LUXURY REAL ESTATE
           </motion.div>
           
           <motion.h1 className="hero-main-title" variants={heroChild}>
-            <span className="serif-text">Winstone</span><br />
-            <span className="bold-sans-text text-gold"><ShimmerText>Projects</ShimmerText></span>
+            <span className="serif-text">Where Space</span><br />
+            <span className="bold-sans-text text-gold"><ShimmerText>Becomes Legacy</ShimmerText></span>
           </motion.h1>
           
           <motion.div className="decorative-divider" variants={heroChild} style={{ margin: '0 auto 1.5rem' }}>
@@ -256,15 +256,15 @@ const Home = () => {
           </motion.div>
 
           <motion.h3 className="hero-dev-text" variants={heroChild}>
-            Premium Real Estate Developers
+            Winstone Projects — Premium Real Estate
           </motion.h3>
 
           <motion.p className="hero-desc" variants={heroChild}>
-            "Where architectural dreams meet reality, creating spaces that inspire and endure."
+            "We don't build properties. We engineer futures — one landmark at a time."
           </motion.p>
           
           <motion.p className="hero-market" variants={heroChild}>
-            India & UAE Markets
+            Dubai · Abu Dhabi · Bangalore · Mumbai
           </motion.p>
 
           <motion.div 
@@ -330,13 +330,13 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <div className="impact-pill">IMPACT</div>
-            <h2 className="impact-title">Global <span className="text-gold">Impact</span></h2>
+            <h2 className="impact-title">Six Years.<br/><span className="text-gold">Zero Compromises.</span></h2>
             <div className="decorative-divider centered">
               <div className="line-seg"></div>
               <div className="line-dot"></div>
               <div className="line-seg"></div>
             </div>
-            <p className="impact-subtitle">Transforming industries and creating value across multiple sectors.</p>
+            <p className="impact-subtitle">From a single vision in 2018 to a multi-country operation — the numbers tell only part of the story.</p>
           </motion.div>
 
           <div className="impact-grid-new">
@@ -386,7 +386,7 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <div className="subtitle-pill-gold">STRATEGIC PARTNERSHIPS</div>
-            <h2 className="luxury-heading">Trusted by Industry Leaders</h2>
+            <h2 className="luxury-heading">Built on Trust,<br/>Backed by Giants</h2>
             
             <div className="luxury-divider">
               <div className="div-line"></div>
@@ -395,7 +395,7 @@ const Home = () => {
             </div>
 
             <p className="luxury-subtext">
-              Collaborating with leading companies across the Middle East and beyond, delivering excellence in every partnership
+              Side by side with the region's most iconic developers — from Emaar to DAMAC — we don't just sell properties, we shape skylines.
             </p>
           </motion.div>
         </div>
@@ -453,11 +453,11 @@ const Home = () => {
         <div className="container">
           <motion.div className="fps-header" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <div className="section-subtitle-pill">OUR PORTFOLIO</div>
-            <h2 className="gold-gradient-text hfp-title">Featured Projects</h2>
+            <h2 className="gold-gradient-text hfp-title">Spaces That<br/>Outlast Trends</h2>
             <div className="decorative-divider centered" style={{ margin: '1.25rem auto 1.5rem' }}>
               <div className="line-seg" /><div className="line-dot" /><div className="line-seg" />
             </div>
-            <p className="hfp-subtitle">Landmark developments redefining luxury, innovation and architectural excellence across India and the UAE.</p>
+            <p className="hfp-subtitle">Not just buildings — statements. Each project is a deliberate act of design, engineered to appreciate in value and meaning over time.</p>
           </motion.div>
         </div>
 
@@ -472,10 +472,10 @@ const Home = () => {
           {/* Centered header */}
           <motion.div className="about-header" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <div className="section-subtitle-pill">ABOUT US</div>
-            <h2 className="about-main-title">The <span className="gold-gradient-text">Winstone Group</span></h2>
+            <h2 className="about-main-title">We Don't Follow<br/><span className="gold-gradient-text">Markets. We Make Them.</span></h2>
             <div className="decorative-divider centered"><div className="line-seg"/><div className="line-dot"/><div className="line-seg"/></div>
             <p className="about-intro">
-              A diversified conglomerate committed to excellence across multiple industries, creating lasting value and meaningful impact in every venture we undertake.
+              Since 2018, Winstone has operated at the intersection of ambition and precision — building not just properties, but portfolios that define a generation.
             </p>
           </motion.div>
 
@@ -490,12 +490,12 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h3 className="about-legacy-title">Building Tomorrow's Legacy</h3>
+              <h3 className="about-legacy-title">Obsessed with the Long Game</h3>
               <p className="about-body">
-                Founded in 2018, the Winstone Group has rapidly evolved into a dynamic conglomerate with a clear vision: to redefine excellence across diverse industries while maintaining our core values of innovation, quality, and customer satisfaction.
+                Most developers build for the market. We build for the decade after. Founded in 2018, Winstone Group was born from a single conviction: that premium real estate should be an experience, not just a transaction.
               </p>
               <p className="about-body">
-                From premium real estate development to luxury automotive services and community-focused social initiatives, we believe in creating comprehensive value that extends beyond business success to meaningful community impact.
+                From landmark towers in Dubai to township projects in Bangalore, every Winstone development carries the same DNA — uncompromising design, transparent process, and a relentless focus on what the property will be worth to its owner ten years from now.
               </p>
 
               <h4 className="about-values-label">Our Core Values</h4>
@@ -560,14 +560,14 @@ const Home = () => {
       <section id="companies" className="section-padding container">
         <motion.div style={{ textAlign: 'center', marginBottom: '4rem' }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <div className="section-subtitle-pill">OUR COMPANIES</div>
-          <h2>The <span className="gold-gradient-text">Winstone Group</span></h2>
+          <h2>Three Ventures.<br/><span className="gold-gradient-text">One Standard.</span></h2>
           <div className="decorative-divider centered">
             <div className="line-seg"></div>
             <div className="line-dot"></div>
             <div className="line-seg"></div>
           </div>
           <p className="section-desc">
-            A diversified portfolio bridging luxury property markets and mobility ventures seamlessly.
+            Real estate, automotive, and social impact — each arm of Winstone operates independently, but shares the same obsession with quality.
           </p>
         </motion.div>
         
@@ -633,10 +633,10 @@ const Home = () => {
         <div className="container">
           <motion.div className="aw-header" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <div className="section-subtitle-pill">RECOGNITION</div>
-            <h2 className="aw-title">Awards & <span className="gold-gradient-text">Achievements</span></h2>
+            <h2 className="aw-title">The Industry<br/><span className="gold-gradient-text">Took Notice</span></h2>
             <div className="decorative-divider centered"><div className="line-seg"/><div className="line-dot"/><div className="line-seg"/></div>
             <p className="aw-subtitle">
-              Recognition for exceptional achievements in luxury real estate development, innovative design, and outstanding contributions to the industry by leading organizations including NAR India and CREDAI.
+              Six years. Six awards. From NAR India to CREDAI — recognition that confirms what our clients already know: Winstone sets the standard.
             </p>
           </motion.div>
 
@@ -761,7 +761,7 @@ const Home = () => {
             >
               <div className="section-subtitle-pill" style={{ alignSelf: 'flex-start' }}>EXECUTIVE PROFILE</div>
               <h2 className="founder-bio-title">
-                Visionary <span className="gold-gradient-text">Leadership</span>
+                One Vision.<br/><span className="gold-gradient-text">No Shortcuts.</span>
               </h2>
               <div className="decorative-divider" style={{ maxWidth: '200px', marginBottom: '2rem' }}>
                 <div className="line-seg" /><div className="line-dot" /><div className="line-seg" />
@@ -802,9 +802,9 @@ const Home = () => {
         <div className="container">
           <motion.div className="tm-header" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <div className="section-subtitle-pill">TESTIMONIALS</div>
-            <h2 className="tm-title">What Our <span className="gold-gradient-text">Partners Say</span></h2>
+            <h2 className="tm-title">Don't Take<br/><span className="gold-gradient-text">Our Word for It</span></h2>
             <div className="decorative-divider centered"><div className="line-seg"/><div className="line-dot"/><div className="line-seg"/></div>
-            <p className="tm-subtitle">Trusted by investors, developers and clients across India and the UAE.</p>
+            <p className="tm-subtitle">Investors, developers and clients across India and the UAE — here's what working with Winstone actually feels like.</p>
           </motion.div>
 
           <div className="tm-grid">
@@ -875,9 +875,9 @@ const Home = () => {
         <div className="container">
           <motion.div className="ct-header" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <div className="section-subtitle-pill">CONTACT</div>
-            <h2 className="ct-title">Let's Build <span className="gold-gradient-text">Something Exceptional</span></h2>
+            <h2 className="ct-title">Your Next<br/><span className="gold-gradient-text">Best Investment</span><br/>Starts Here</h2>
             <div className="decorative-divider centered"><div className="line-seg"/><div className="line-dot"/><div className="line-seg"/></div>
-            <p className="ct-subtitle">Ready to create your dream property? Connect with Winstone Projects to discuss luxury real estate development, investments, or partnership opportunities.</p>
+            <p className="ct-subtitle">Whether you're an investor, a first-time buyer, or a developer looking for a partner — we're ready to talk. No pressure, just possibilities.</p>
           </motion.div>
 
           <div className="ct-body">
